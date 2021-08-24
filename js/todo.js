@@ -9,41 +9,49 @@ function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
+// function sexyFilter(id) {
+//     return id !== 
+// }
 function deleteTodo(event) {
     const li = event.target.parentElement;
     li.remove();
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    saveToDos();
 }
 
 function paintTodo(newTodo) {
-    console.log("i will paint" + newTodo);
+    console.log("i will paint" + newTodo.text);
     const li = document.createElement("li");
     const span = document.createElement("span");
     const button = document.createElement("button");
-
     li.appendChild(span);
     li.appendChild(button);
-    //    console.log(li);
-    span.innerText = newTodo + " ";
+    li.id = newTodo.id;
+    span.innerText = newTodo.text + " ";
     button.innerText = "X";
     toDoList.appendChild(li);
     button.addEventListener("click", deleteTodo);
 }
 function handleToDoSubmit(e) {
     e.preventDefault();
-    console.log(toDoInput.value);
-    const InputValue = toDoInput.value
-    toDoInput.value = ""
-    toDos.push(InputValue);
-    paintTodo(InputValue);
+    const InputValue = toDoInput.value;
+    toDoInput.value = "";
+    const newTodoObj = {
+        text: InputValue,
+        id: Date.now(),
+    };
+    toDos.push(newTodoObj);
+    paintTodo(newTodoObj);
     saveToDos();
+    console.log(newTodoObj);
 }
 
 toDoform.addEventListener("submit", handleToDoSubmit);
 
-const saveTooDos = localStorage.getItem(TODOS_KEY);
+const saveTodos = localStorage.getItem(TODOS_KEY);
 
-if (saveToDos !== null) {
-    const parseTodos = JSON.parse(saveTooDos);
+if (saveTodos !== null) {
+    const parseTodos = JSON.parse(saveTodos);
     toDos = parseTodos;
     parseTodos.forEach(paintTodo);
 }
