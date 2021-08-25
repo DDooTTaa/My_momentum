@@ -34,8 +34,6 @@ body {
     align-items: center;
     overflow: hidden;
     font-family: 'Baloo Tamma 2', 'Nanum Pen Script',  'Noto Sans KR', cursive;
-    background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.5)),
-    url("https://img.chuing.net/i/eyGNHpJ/20171118-006.jpg");
 }
 
 .main {

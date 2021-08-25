@@ -10,5 +10,5 @@ const chosenImage = images[Math.floor(Math.random() * images.length)];
 
 //document.body.style.backgroundImage = `url(${bgImage})`;
 
-//document.body.style = `background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.5)),
-//    url("${chosenImage}")`
+document.body.style = `background-image: radial-gradient(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.5)),
+    url("${chosenImage}")`
