@@ -1,24 +1,81 @@
+const API_KEY = "fc429eb093ad572f27c439226d0ee864";
+const COORD = "coord";
 
-const API_KEY = "7626ae1f64b9476b2d6175eed10a4411";
+async function getWeather({ latitude, longitude }) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lang=kr&lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 
-function onGeOk(position) {
-    const lat = position.coords.latitude;
-    const lng = position.coords.longitude;
-    console.log("I live in", lat, lng);
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`
-    console.log(url);
-    fetch(url)
-        .then((response) => response.json())
+    const result = await fetch(url)
+        .then((res) => res.json())
         .then((data) => {
-            const weather = document.querySelector("#weather span:first-child");
-            const city = document.querySelector("#weather span:last-child");
-            weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
-            city.innerText = `${data.name}`;
+            return {
+                city: data.name,
+                temp: data.main.temp,
+                weather: data.weather[0],
+            };
         });
+
+    return result;
 }
 
-function onGeErr() {
-    alert("Can't find you")
+function getWeatherIconUrl(icon) {
+    const url = `https://openweathermap.org/img/w/${icon}.png`;
+
+    return url;
 }
 
-navigator.geolocation.getCurrentPosition(onGeOk, onGeErr);
+async function getGeometric() {
+    let coord = JSON.parse(localStorage.getItem(COORD));
+
+    const onGeoOk = async (position) => {
+        const {
+            coords: { latitude, longitude },
+        } = position;
+
+        coord = {
+            latitude,
+            longitude,
+        };
+
+        localStorage.setItem(COORD, JSON.stringify(coord));
+        const weather = await getWeather(coord);
+        setWeather(weather);
+    };
+
+    const onGeoError = () => {
+        coord = null;
+    };
+
+    if (!coord) {
+        navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+    }
+
+    return coord;
+}
+
+function setWeather({ city, temp, weather }) {
+    const domCity = document.querySelector(".city");
+    const domTemp = document.querySelector(".temp");
+    const weatherInfo = document.querySelector(".weatherInfo");
+    const icon = document.createElement("img");
+    const info = document.createElement("span");
+
+    icon.src = getWeatherIconUrl(weather.icon);
+    info.innerText = weather.description;
+
+    domCity.innerText = city;
+    domTemp.innerHTML = `${temp.toFixed(1)}&nbsp;℃`;
+
+    weatherInfo.appendChild(icon);
+    weatherInfo.appendChild(info);
+}
+
+async function init() {
+    const coord = await getGeometric();
+
+    if (coord) {
+        const weather = await getWeather(coord);
+        setWeather(weather);
+    }
+}
+
+init();

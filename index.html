@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Momentum App</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="header">
@@ -19,17 +27,19 @@
         <button>Login</button>
       </form>
       <h1 id="greeting" class="hidden"></h1>
-      <span id="todo-head">ToDo List</span>
-      <form input id="todo-form">
-        <input
-          type="text"
-          required
-          placeholder="Write a To Do and Press enter"
-        />
-      </form>
+      <div class="todo-list hidden">
+        <span id="todo-head">ToDo List</span>
+        <form input id="todo-form">
+          <input
+            type="text"
+            required
+            placeholder="Write a To Do and Press enter"
+          />
+        </form>
+      </div>
       <ul id="todo-list"></ul>
     </div>
-    <div class="main">
+    <div class="main hidden">
       <h2 id="clock"></h2>
       <div id="quote">
         <span></span>
@@ -41,11 +51,14 @@
       <span></span>
       <span></span>
     </div>
+    <div class="initBtnBox">
+      <span class="initBtn material-icons-outlined"> replay </span>
+    </div>
     <script src="js/clock.js"></script>
-    <script src="js/greeting.js"></script>
-    <script src="js/quote.js"></script>
     <script src="js/background.js"></script>
+    <script src="js/quote.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/greeting.js"></script>
   </body>
 </html>

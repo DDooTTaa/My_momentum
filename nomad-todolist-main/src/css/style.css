@@ -1,0 +1,556 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+    min-width: 1100px;
+    background-color: #000;
+}
+
+.hide {
+    display: none !important;
+}
+
+#loginBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 1000;
+    font-family: "Montserrat", "Noto Sans KR", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login p {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    bottom: -20px;
+    animation: slide 1s ease-in-out 1s forwards;
+}
+
+.login p:nth-child(1) {
+    font-size: 32px;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        bottom: -20px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0;
+    }
+}
+
+.login input {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width: 270px;
+    height: 40px;
+    text-align: center;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-top: 30px;
+    color: #fff;
+    opacity: 0;
+    animation-name: inputShow;
+    animation-delay: 3s;
+    animation-duration: 0s;
+    animation-fill-mode: forwards;
+    padding-bottom: 5px;
+    cursor: default;
+}
+
+@keyframes inputShow {
+    0% {
+        opacity: 0;
+        border-bottom: 0;
+        cursor: default;
+    }
+    100% {
+        opacity: 1;
+        border-bottom: 2px solid #ffffff;
+        cursor: initial;
+    }
+}
+
+#guide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat", "Noto Sans KR", sans-serif;
+}
+
+#guide > div {
+    position: absolute;
+    color: #fff;
+    border-radius: 100%;
+    background-color: #101010;
+    border: 2px dashed #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#guide > div > span {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute;
+    color: #000;
+    font-size: 80px;
+}
+
+#guide > div > button {
+    border: 1px solid #fff;
+    background-color: #000;
+    padding: 6px 12px;
+    color: #fff;
+    font-size: 16px;
+
+    margin: 0;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#guide > div > button:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.addGuide {
+    width: 300px;
+    padding: 30px;
+    padding-bottom: 15px;
+    top: 600px;
+    left: 200px;
+}
+
+.addGuide span {
+    top: -60px;
+    left: 135px;
+    transform: rotate(90deg);
+}
+
+.inputGuide {
+    width: 270px;
+    top: 500px;
+    left: 440px;
+    padding: 40px;
+    padding-bottom: 15px;
+}
+
+.inputGuide span {
+    left: -65px;
+}
+
+.deleteGuide {
+    width: 260px;
+    padding: 40px;
+    padding-bottom: 15px;
+    top: 420px;
+    left: 475px;
+}
+
+.deleteGuide span {
+    left: -60px;
+    transform: rotate(-40deg);
+}
+
+.initGuide {
+    width: 320px;
+    padding: 40px;
+    padding-bottom: 15px;
+    top: 50px;
+    right: 70px;
+}
+
+.initGuide span {
+    top: -40px;
+    right: 5px;
+    transform: rotateY(180deg);
+}
+
+#guide > div > p {
+    font-size: 16px;
+    text-align: center;
+}
+
+#guide > div > p:nth-child(3) {
+    font-size: 12px;
+}
+
+#bg {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+#app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: "Montserrat", "Noto Sans KR", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    min-width: 1100px;
+}
+
+#blurBox {
+    width: 500px;
+    min-height: 100vh;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 70px 50px;
+    overflow: auto;
+}
+
+#blurBox::-webkit-scrollbar {
+    width: 12px;
+}
+#blurBox::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    box-shadow: 0px 0px 3px -2px #d7d7d7;
+}
+#blurBox::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.api {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clock,
+.weather {
+    background-color: #fff;
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-shadow: 0 3px 16px -20px rgba(50, 50, 93, 0.4),
+        0 8px 16px -8px rgba(0, 0, 0, 0.5),
+        0 -6px 16px -6px rgba(0, 0, 0, 0.425);
+}
+
+.dateBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.day {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.date {
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.time {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.weather {
+    background-color: #619cd2;
+    color: #fff;
+}
+
+.weather > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.city {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.temp {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.weatherInfo > img {
+    display: block;
+    width: 40px;
+    position: relative;
+    top: 3px;
+}
+
+.weatherInfo > span {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.linkBox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.link {
+    width: 80px;
+    height: 80px;
+    padding: 15px;
+    display: flex;
+    /* background-color: #000; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    /* background-color: rgba(255, 255, 255, 0.6); */
+
+    box-shadow: 0 3px 16px -20px rgba(50, 50, 93, 0.4),
+        0 8px 16px -8px rgba(0, 0, 0, 0.5),
+        0 -6px 16px -6px rgba(0, 0, 0, 0.425);
+
+    transition: background-color 0.25s ease-in-out;
+}
+
+.link:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.link:hover img {
+    transform: scale(1.2);
+}
+
+.link > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.25s ease-in-out;
+}
+
+.searchBox {
+    margin-top: 40px;
+    border-radius: 25px;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    box-shadow: 0 3px 16px -20px rgba(50, 50, 93, 0.4),
+        0 8px 16px -8px rgba(0, 0, 0, 0.5),
+        0 -6px 16px -6px rgba(0, 0, 0, 0.425);
+    border: 2px solid #d7d7d7;
+}
+
+.searchBox input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.searchBox button {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    outline: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #d7d7d7;
+    cursor: pointer;
+    color: #707070;
+}
+
+.todolistBox {
+    width: 100%;
+    min-height: 200px;
+    background-color: #f6ebd7;
+    border-radius: 25px;
+    margin-top: 40px;
+    padding: 20px;
+    box-shadow: 0 3px 16px -20px rgba(50, 50, 93, 0.4),
+        0 8px 16px -8px rgba(0, 0, 0, 0.5),
+        0 -6px 16px -6px rgba(0, 0, 0, 0.425);
+}
+
+.todoHeader {
+    font-size: 20px;
+    font-family: "Montserrat", "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.todoIconBox span {
+    font-size: 26px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.todoIconBox span:nth-child(1) {
+    margin-right: 5px;
+}
+
+.todolist {
+    margin-top: 20px;
+    padding: 0 10px;
+    margin-bottom: 30px;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.todo {
+    display: flex;
+}
+
+.todo:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.todo > div {
+    position: relative;
+    width: 35px;
+}
+
+.todo > div > span {
+    position: absolute;
+    margin-top: 2px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 5;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.todo > div > span:nth-child(2) {
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 0;
+    top: -5px;
+    left: -3px;
+    z-index: 3;
+}
+
+.todo > form {
+    width: 100%;
+    height: 100%;
+}
+
+.todo > form > input {
+    background-color: transparent;
+    font-family: "Noto Sans KR", sans-serif;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #000;
+    font-size: 17px;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.todo > p {
+    width: 100%;
+    font-size: 17px;
+    font-weight: 700;
+    padding-left: 2px;
+}
+
+.quotesBox {
+    width: 600px;
+    height: 100vh;
+    padding: 70px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quotes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    text-shadow: 1px 1px 7px #000000;
+}
+
+.quotes > span {
+    text-align: center;
+}
+
+.quotes > span:first-child {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.initBtnBox {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.initBtnBox > span {
+    color: #fff;
+    font-size: 40px;
+    text-shadow: 1px 1px 5px #000000;
+    cursor: pointer;
+}

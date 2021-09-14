@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="./src/css/style.css" rel="stylesheet" />
+
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+
+        <title>Todolist</title>
+    </head>
+    <body>
+        <div id="loginBox" class="hide">
+            <div class="login">
+                <p>이름이 무엇입니까?</p>
+                <p>What is your name?</p>
+                <form>
+                    <input type="text" placeholder="Name" maxlength="6" />
+                </form>
+            </div>
+        </div>
+        <div id="guide" class="hide">
+            <div class="addGuide">
+                <span class="material-icons-outlined">
+                    reply
+                </span>
+                <p>버튼을 눌러 목록을 추가하세요.</p>
+                <p>Click the button to add the list.</p>
+                <button>OK</button>
+            </div>
+            <div class="inputGuide hide">
+                <span class="material-icons-outlined">
+                    reply
+                </span>
+                <p>입력 후, Enter를 눌러야 저장이 됩니다.</p>
+                <p>After entering the to-do, press Enter to save.</p>
+                <button>OK</button>
+            </div>
+            <div class="deleteGuide hide">
+                <span class="material-icons-outlined">
+                    reply
+                </span>
+                <p>삭제할 목록을 체크한 후, 버튼을 눌러주세요.</p>
+                <p>After selecting the checkbox, click the button to delete it.</p>
+                <button>OK</button>
+            </div>
+            <div class="initGuide hide">
+                <span class="material-icons-outlined">
+                    reply
+                </span>
+                <p>모든 초기화를 원시면 버튼을 눌러주세요.</p>
+                <p>If you want to reset all settings, please press the button.</p>
+                <button>OK</button>
+            </div>
+        </div>
+        <div id="app" class="hide">
+            <div id="blurBox">
+                <div class="api">
+                    <div class="clock">
+                        <div class="dateBox">
+                            <span class="day"></span>
+                            <span class="date"></span>
+                        </div>
+                        <span class="time"></span>
+                    </div>
+                    <div class="weather">
+                        <div>
+                            <span class="city"></span>
+                            <span class="temp"></span>
+                        </div>
+                        <div class="weatherInfo"></div>
+                    </div>
+                </div>
+                <div class="linkBox">
+                    <a
+                        class="link"
+                        target="_blank"
+                        href="https://nomadcoders.co/"
+                    >
+                        <img src="img/nomad.png" alt="nomad" />
+                    </a>
+                    <a class="link" target="_blank" href="https://google.com/">
+                        <img src="img/google.png" alt="nomad" />
+                    </a>
+                    <a class="link" target="_blank" href="https://naver.com/">
+                        <img src="img/naver.png" alt="nomad" />
+                    </a>
+                    <a class="link" target="_blank" href="https://youtube.com/">
+                        <img src="img/youtube.png" alt="nomad" />
+                    </a>
+                </div>
+                <form class="searchBox">
+                    <input type="text" placeholder="검색" />
+                    <button type="submit">
+                        <span class="material-icons-outlined">search</span>
+                    </button>
+                </form>
+                <div class="todolistBox">
+                    <div class="todoHeader">
+                        <span class="todoName"></span>
+                        <div class="todoIconBox">
+                            <span class="material-icons-outlined">post_add</span>
+                            <span class="material-icons">delete</span>
+                        </div class="todoIconBox">
+                    </div class="todoHeader">
+                    <ul class="todolist">
+                    </ul>
+                </div>
+            </div>
+            <div class="quotesBox">
+                <div class="quotes">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="initBtnBox">
+                <span class="initBtn material-icons-outlined">
+                    replay
+                </span>
+            </div>
+        </div>
+        <script src="./src/js/utils.js"></script>
+        <script src="./src/js/background.js"></script>
+        <script src="./src/js/login.js"></script>
+        <script src="./src/js/quotes.js"></script>
+        <script src="./src/js/weather.js"></script>
+        <script src="./src/js/clock.js"></script>
+        <script src="./src/js/search.js"></script>
+        <script src="./src/js/todolist.js"></script>
+    </body>
+</html>
