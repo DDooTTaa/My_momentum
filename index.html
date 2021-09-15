@@ -14,8 +14,17 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/e8644e93da.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <audio src="music/music.mp3" id="audio" loop></audio>
+    <ul class="music">
+      <li><i class="fas fa-music"></i></li>
+      <li class="hidden"><i class="fas fa-pause"></i></li>
+    </ul>
     <div class="header">
       <form class="hidden" id="login-form">
         <input
@@ -60,5 +69,6 @@
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/greeting.js"></script>
+    <script src="js/music.js"></script>
   </body>
 </html>
