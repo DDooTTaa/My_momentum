@@ -30,10 +30,88 @@ body {
     height: 100vh;
     width:  100vw;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     overflow: hidden;
     font-family: 'Baloo Tamma 2', 'Nanum Pen Script',  'Noto Sans KR', cursive;
+    margin: 0px;
+}
+
+.loginBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    font-family: "Montserrat", "Noto Sans KR", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login p {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    margin: 5px;
+    animation: slide 1s ease-in-out 1s forwards;
+}
+
+.login p:nth-child(1) {
+    font-size: 32px;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        bottom: -20px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0;
+    }
+}
+
+.login input {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width: 270px;
+    height: 40px;
+    text-align: center;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-top: 30px;
+    color: #fff;
+    opacity: 0;
+    animation-name: inputShow;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    border-bottom: 2px solid #ffffff;
+    cursor: initial;
+    padding-bottom: 5px;
+    cursor: default;
+}
+
+@keyframes inputShow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        
+    }
 }
 
 .main {
@@ -44,8 +122,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 300px;
     align-items: center;
     background-color: rgba(125, 125, 125, 0.4);
+    z-index: 1000;
 }
 
 #clock {
@@ -58,6 +138,7 @@ body {
     font-size: 50px;
     top: 10px;
     left: 50px;
+    color: white;
 }
 
 #todo-form {
@@ -65,7 +146,33 @@ body {
     font-size: 30px;
     top: 150px;
     left: 50px;
+    
    
+}
+
+.left-nav {
+    width: 500px;
+    min-height: 100vh;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 70px 50px;
+    overflow: auto;
+    z-index: 10000;
+}
+
+.left-nav::-webkit-scrollbar {
+    width: 12px;
+}
+.left-nav::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    box-shadow: 0px 0px 3px -2px #d7d7d7;
+}
+.left-nav::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
 }
 
 #todo-form input {
@@ -73,7 +180,7 @@ body {
     width: 400px;
     height: 40px;
     text-align: center;
-    background-color: gray;
+
     
 }
 
@@ -126,6 +233,7 @@ li {
     font-size: 50px;
     top: 10px;
     left: 50px;
+    z-index: 1000;
 }
 
 #login-form input {
@@ -152,6 +260,7 @@ li {
     position: absolute;
     top: 30px;
     right: 30px;
+    z-index: 1000;
 }
 
 .initBtnBox > span {
@@ -197,7 +306,6 @@ li {
     margin-right: 30px;
   }
   .music:hover .fa-music {
-      
     animation: shake 1s;
     animation-iteration-count: infinite;
   }

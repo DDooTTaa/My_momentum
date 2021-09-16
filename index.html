@@ -25,16 +25,17 @@
       <li><i class="fas fa-music"></i></li>
       <li class="hidden"><i class="fas fa-pause"></i></li>
     </ul>
-    <div class="header">
-      <form class="hidden" id="login-form">
-        <input
-          required
-          maxlength="15"
-          type="text"
-          placeholder="what is your name?"
-        />
-        <button>Login</button>
-      </form>
+    <div class="loginBox">
+      
+      <div class="login">
+        <p>이름이 무엇입니까?</p>
+        <p>What is your name?</p>
+        <form>
+            <input type="text" placeholder="Name" maxlength="6">
+        </form>
+    </div>
+    </div>
+    <div class="left-nav hidden">
       <h1 id="greeting" class="hidden"></h1>
       <div class="todo-list hidden">
         <form input id="todo-form">
@@ -47,6 +48,7 @@
       </div>
       <ul id="todo-list"></ul>
     </div>
+
     <div class="main hidden">
       <h2 id="clock"></h2>
       <div id="quote">
@@ -59,6 +61,7 @@
       <span></span>
       <span></span>
     </div>
+
     <div class="initBtnBox">
       <span class="initBtn material-icons-outlined"> replay </span>
     </div>
@@ -67,7 +70,7 @@
     <script src="js/quote.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
-    <script src="js/greeting.js"></script>
     <script src="js/music.js"></script>
+    <script src="js/greeting.js"></script>
   </body>
 </html>
