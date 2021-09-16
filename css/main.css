@@ -63,8 +63,9 @@ body {
 #todo-form {
     position: absolute;
     font-size: 30px;
-    top: 180px;
+    top: 150px;
     left: 50px;
+   
 }
 
 #todo-form input {
@@ -72,7 +73,8 @@ body {
     width: 400px;
     height: 40px;
     text-align: center;
-    border: 1px solid white;
+    background-color: gray;
+    
 }
 
 #todo-form input:focus {
